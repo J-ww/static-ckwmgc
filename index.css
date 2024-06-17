@@ -1,0 +1,47 @@
+ #app{
+        padding:10px 10px 0;
+        font-size:14px;
+    }
+    
+    button{
+        padding:8px 12px;
+        margin-right:10px;
+        border-radius:5px;
+    }
+    
+    textarea {
+      width:40%;
+      height: 550px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      font-size:14px;
+      color:#303133;
+      border-radius:2px;
+      margin-right:20px;
+      float:left;
+    }
+
+    .highlightedText {
+      font-size:14px;
+      width:40%;      
+      height: 550px;
+      padding: 20px;
+      border: 1px dashed #ccc;
+      overflow-y: auto;
+      white-space:pre-wrap;
+      color:#303133;
+      float:left;
+    }
+    .filterWords{
+        font-size:16px;
+        padding: 0 0 10px;
+        
+    }
+    .filterWords strong{
+        color:#F56C6C;
+    }
+    .tips{
+        font-size:12px;
+        color:#666;
+        margin-top:4px;
+    }

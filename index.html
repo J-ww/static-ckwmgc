@@ -4,56 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>词库外敏感词</title>
-  <style>
-    #app{
-        padding:10px 10px 0;
-        font-size:14px;
-    }
-    
-    button{
-        padding:8px 12px;
-        margin-right:10px;
-        border-radius:5px;
-    }
-    
-    textarea {
-      width:40%;
-      height: 550px;
-      padding: 20px;
-      border: 1px solid #ccc;
-      font-size:14px;
-      color:#303133;
-      border-radius:2px;
-      margin-right:20px;
-      float:left;
-    }
-
-    .highlightedText {
-      font-size:14px;
-      width:40%;      
-      height: 550px;
-      padding: 20px;
-      border: 1px dashed #ccc;
-      overflow-y: auto;
-      white-space:pre-wrap;
-      color:#303133;
-      float:left;
-    }
-    .filterWords{
-        font-size:16px;
-        padding: 0 0 10px;
-        
-    }
-    .filterWords strong{
-        color:#F56C6C;
-    }
-    .tips{
-        font-size:12px;
-        color:#666;
-        margin-top:4px;
-    }
-  </style>
-
+  <link rel="stylesheet" href="./index.css">
 </head>
 <body>
   <div id="app">
@@ -79,76 +30,8 @@
     
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-  <script>
-    <!--    start违禁词, 参考修改词 -->
-    const keywords = ["钱","玄学","离火运","末法时代","轮回","福报","前世","业力","死","命运","宿命","NPD","傻逼","小人","心经","身心灵","因果","跳楼","使命","灵魂","天机","法门","疗愈","神","鬼","佛","菩提心","耶稣","菩萨","恋爱脑","自杀","屁","开悟","觉醒","天眼","法眼","抑郁","双相情感障碍","自闭","报应","现世报","桃花劫","双生火焰","系统","最","赚","天道","仁波切","观世音","心","中国","一切","永远"]    
-    
-    const editWords = ["💰","玄x","离🔥运","末F时代","轮H","F报/福b","前s","邺力","s","命y","宿m","N*D","傻*","x人","❤️经","身❤️灵","因G","眺楼","使m","灵H","天j","fa门","疗y","S","G","fo","菩ti心","耶su","菩sa","恋ai脑","自S","P","开勿","觉X","天yan","fa眼","yy","双X情感Z碍","自bi","B应","现S报","桃花jie","双生🔥焰","X统","蕞","贝兼","天噵","仁bo切","观S音","❤️","中G","yi切","永y"]
-    <!--    end违禁词, 参考修改词 -->
-    
-    <!--    start易错词  -->
-    const noticeWords = ["气运","着相","度人","互度","佛慢","金刚力","双相情感障碍"] 
-    <!--    end易错词  -->
-  
-    new Vue({
-      el: '#app',
-      data: {
-        keywords,
-        editWords,
-        noticeWords,
-        searchTerm: "",
-        filterWords: "",
-        highlightedText: "",
-        num: null,
-      },
-      methods: {
-        highlightKeywords() {
-          this.filterWords = "";
-          this.highlightedText = "";
-          this.num = null
-          if (this.searchTerm) {
-            let regex = new RegExp(this.keywords.join("|"), "gi");
-            let matchedKeywords = this.searchTerm.match(regex);
-            if (matchedKeywords) {
-              let mixedwords = []
-              let uniqueKeywords = [...new Set(matchedKeywords)];
-              for(var i=0;i<uniqueKeywords.length;i++){
-                  let beforeword = uniqueKeywords[i]
-                  let afterword = ""
-                  let index = this.keywords.indexOf(beforeword)
-                  afterword = this.editWords[index]  
-                  let afterwordspan = `<span style="color:#666;">（${afterword}）</span>`
-                  mixedwords.push(
-                    beforeword+afterwordspan
-                  )          
-              }
-              this.num = mixedwords.length;
-              this.filterWords = mixedwords.join("，");
-            } else {
-              this.filterWords = "";
-              this.num = 0
-            }
-            this.highlightedText = this.searchTerm.replace(regex, match => {
-              if(this.searchTerm.match(new RegExp(match,'gi'))){
-                return `<span style="background-color: #F56C6C;color:white;">${match}</span>`;
-              }else{
-                return match;
-              }
-            });
-          } else {
-              this.num = 0
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="./index.js"></script>
 
-          }
-        },
-        clearText(){
-            this.searchTerm = "";
-            this.filterWords = "";
-            this.highlightedText = "";
-            this.num = null
-        }
-      }
-    });
-  </script>
 </body>
 </html>
