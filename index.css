@@ -1,6 +1,13 @@
+ *{
+ 	margin:0;
+ 	padding:0;
+ 	box-sizing:border-content;
+ }
  #app{
-        padding:10px 10px 0;
+ 	    width: calc(100% - 20px);
         font-size:14px;
+        margin:10px;
+/*        border: 1px solid red;*/
     }
     
     button{
@@ -8,29 +15,30 @@
         margin-right:10px;
         border-radius:5px;
     }
-    
+    .flexdiv{
+/*    	width:100%;
+    	padding:10px;
+    	border: 1px solid red;*/
+
+    }
     textarea {
-      width:40%;
-      height: 550px;
-      padding: 20px;
+      display:block;
       border: 1px solid #ccc;
+      border-radius:2px;
+    }
+    .divstl{
+      width:calc(100% - 20px);
+      height: 300px;
+      padding: 10px;
       font-size:14px;
       color:#303133;
-      border-radius:2px;
-      margin-right:20px;
-      float:left;
+      margin: 10px 0 20px;
     }
 
     .highlightedText {
-      font-size:14px;
-      width:40%;      
-      height: 550px;
-      padding: 20px;
       border: 1px dashed #ccc;
       overflow-y: auto;
       white-space:pre-wrap;
-      color:#303133;
-      float:left;
     }
     .filterWords{
         font-size:16px;
@@ -45,3 +53,18 @@
         color:#666;
         margin-top:4px;
     }
+    /* 当屏幕宽度大于768像素时，应用以下样式 */
+@media (min-width: 768px) {
+  .divstl{
+      width:calc(50% - 30px);
+      margin:0;
+      height: 600px;
+   }
+   textarea{
+   	float:left;
+   }
+   .highlightedText {
+   	float:right;
+   }
+
+}

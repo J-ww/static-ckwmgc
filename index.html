@@ -8,13 +8,6 @@
 </head>
 <body>
   <div id="app">
-    <div style="margin-bottom:10px;">
-        <button @click="highlightKeywords" style="background:#409EFF;color:white;">查找</button>
-        <button @click="clearText">清空</button>
-    </div>
-    <div class="filterWords">
-      易错词：{{noticeWords}}
-    </div>
     <div class="filterWords">
       词库外敏感词
       <span v-if="num>0">（{{num}}）：</span>
@@ -22,9 +15,19 @@
       <strong v-html="filterWords"></strong>
       <div v-if="num>0" class="tips">( 括号内仅为修改参考 )</div>
     </div>
+    <div class="filterWords">
+      易错词：{{noticeWords}}
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <button @click="highlightKeywords" style="background:#409EFF;color:white;">查找</button>
+        <button @click="clearText">清空</button>
+    </div>
+
+    <!-- 文本域-->
     <div class="flexdiv">
-        <textarea v-model="searchTerm" placeholder="输入文本"></textarea>
-        <div class="highlightedText" v-html="highlightedText"></div>
+        <textarea v-model="searchTerm" placeholder="输入文本" class="divstl"></textarea>
+        <div class="divstl highlightedText" v-html="highlightedText"></div>
         <div style="clear:both;"></div>
     </div>
     
