@@ -48,6 +48,9 @@
     .filterWords strong{
         color:#F56C6C;
     }
+    .filterWords div{
+        margin-top:10px;
+    }
     .tips{
         font-size:12px;
         color:#666;

@@ -15,10 +15,7 @@
       <strong v-html="filterWords"></strong>
       <div v-if="num>0" class="tips">( 括号内仅为修改参考 )</div>
     </div>
-    <div class="filterWords">
-      易错词：{{noticeWords}}
-    </div>
-
+    
     <div style="margin-bottom:10px;">
         <button @click="highlightKeywords" style="background:#409EFF;color:white;">查找</button>
         <button @click="clearText">清空</button>
@@ -29,6 +26,15 @@
         <textarea v-model="searchTerm" placeholder="输入文本" class="divstl"></textarea>
         <div class="divstl highlightedText" v-html="highlightedText"></div>
         <div style="clear:both;"></div>
+    </div>
+    
+    <div class="filterWords">
+      <div>
+        <a href="https://kdocs.cn/l/cubbdZpQRA5M" target="_blank">点击跳转文档添加敏感词</a>
+        <small>(根据文档定期更新代码)</small>
+      </div>
+      <div>词库外敏感词（{{keywords.length}}）：{{keywords}}</div>
+      <div>易错词：{{noticeWords}}</div>
     </div>
     
   </div>
